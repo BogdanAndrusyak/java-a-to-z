@@ -1,6 +1,6 @@
-package home14;
+package home14_1;
 
-public class Cube {
+public class CubeInit {
 
 	public static void main(String[] args) {
 		int x1 = Integer.parseInt(args[0]);

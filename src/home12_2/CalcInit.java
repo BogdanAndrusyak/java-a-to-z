@@ -1,4 +1,4 @@
-package calculator;
+package home12_2;
 
 public class CalcInit {
 	

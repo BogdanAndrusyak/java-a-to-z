@@ -1,4 +1,4 @@
-package home14;
+package home14_1;
 
 public class CubeFunction {
 	int a;

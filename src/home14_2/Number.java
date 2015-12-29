@@ -1,11 +1,17 @@
 package home14_2;
 
-public class Factorial {
+public class Number {
 
-	public static void main(String[] args) {
+	int numb;
 
-		int numb = Integer.parseInt(args[0]);
-		int factorial = 1;
+	public Number(int numb) {
+
+		this.numb = numb;
+	}
+
+	public int calculateFactorial() {
+
+		int factorial = 0;
 
 		if (numb < 0) {
 
@@ -13,15 +19,17 @@ public class Factorial {
 
 		} else if (numb == 0) {		
 
-			System.out.println(factorial);
+			factorial = 1;
 
 		} else {
+			
+			factorial = 1;
 
 			for (int i = 1; i <= numb; i++) {
 				factorial *= i;
 			}
-
-			System.out.println(factorial);
 		}	
+
+		return factorial;
 	}
 }

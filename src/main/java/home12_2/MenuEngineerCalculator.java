@@ -16,6 +16,11 @@ public class MenuEngineerCalculator extends MenuCalculator {
     }
 
     @Override
+    public int[] getRange() {
+        return new int[] {0, 1, 2, 3, 4, 5, 6, 7, 8};
+    }
+
+    @Override
     public void fillOperations() {
         super.fillOperations();
 

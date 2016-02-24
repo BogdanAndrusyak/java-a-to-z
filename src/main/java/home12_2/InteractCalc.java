@@ -10,9 +10,9 @@ public class InteractCalc {
 
     public static void main(String[] args) {
         InteractCalc interactCalc = new InteractCalc();
-        Calculator calculator = new Calculator();
+        Calculator calculator = new EngineerCalculator();
         input = new ConsoleInput();
-        menuCalculator = new MenuCalculator(input, calculator);
+        menuCalculator = new MenuEngineerCalculator(input, calculator, 8);
         menuCalculator.fillOperations();
         range = menuCalculator.getRange();
         interactCalc.init();
@@ -25,8 +25,9 @@ public class InteractCalc {
         boolean isExit = false;
         do {
             menuCalculator.show();
+            System.out.println(String.format("%s - %s.", 8, "exit"));
             int key = input.ask("Select: ", range);
-            if (key == 6) {
+            if (key == 8) {
                 isExit = true;
             } else {
                 menuCalculator.select(key);

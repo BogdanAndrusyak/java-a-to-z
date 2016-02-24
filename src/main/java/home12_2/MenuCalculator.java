@@ -9,16 +9,17 @@ public class MenuCalculator {
 	private Calculator calculator;
 
 	/** The array of operations. */
-	private BaseOperation[] operations = new BaseOperation[6];
+	protected BaseOperation[] operations;
 
 	/**
 	 * Default constructor.
 	 * @param input Input.
 	 * @param calculator Calculator.
      */
-	public MenuCalculator(ConsoleInput input, Calculator calculator) {
+	public MenuCalculator(ConsoleInput input, Calculator calculator, int size) {
 		this.input = input;
 		this.calculator = calculator;
+		this.operations = new BaseOperation[size];
 	}
 
 	/**
@@ -31,7 +32,6 @@ public class MenuCalculator {
 				System.out.println(operation.info());
 			}
 		}
-		System.out.println(String.format("%s - %s.", 6, "exit"));
 	}
 
 	/**
@@ -171,7 +171,6 @@ public class MenuCalculator {
 
 			@Override
 			void execute(ConsoleInput input, Calculator calculator, boolean reUse) {
-				// to do
 				System.out.println("First number: " + calculator.getResult());
 				int operationKey = input.ask("Please enter operation[0..4]: ", new int[] {0, 1, 2, 3, 4});
 

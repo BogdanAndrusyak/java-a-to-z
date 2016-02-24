@@ -5,7 +5,7 @@ package home12_2;
  */
 public class Calculator {
     /** Result of the operation. */
-    private double result;
+    protected double result;
     /** ID of last operation. */
     private int lastOperation = 0;
 

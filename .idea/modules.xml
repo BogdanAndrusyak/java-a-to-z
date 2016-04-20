@@ -2,6 +2,18 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
+      <module fileurl="file://$PROJECT_DIR$/chapter_1-2/chapter_1-2.iml" filepath="$PROJECT_DIR$/chapter_1-2/chapter_1-2.iml" />
+      <module fileurl="file://$PROJECT_DIR$/chapter_10/chapter_10.iml" filepath="$PROJECT_DIR$/chapter_10/chapter_10.iml" />
+      <module fileurl="file://$PROJECT_DIR$/chapter_3/chapter_3.iml" filepath="$PROJECT_DIR$/chapter_3/chapter_3.iml" />
+      <module fileurl="file://$PROJECT_DIR$/chapter_4/chapter_4.iml" filepath="$PROJECT_DIR$/chapter_4/chapter_4.iml" />
+      <module fileurl="file://$PROJECT_DIR$/chapter_5/chapter_5.iml" filepath="$PROJECT_DIR$/chapter_5/chapter_5.iml" />
+      <module fileurl="file://$PROJECT_DIR$/chapter_6/chapter_6.iml" filepath="$PROJECT_DIR$/chapter_6/chapter_6.iml" />
+      <module fileurl="file://$PROJECT_DIR$/chapter_7/chapter_7.iml" filepath="$PROJECT_DIR$/chapter_7/chapter_7.iml" />
+      <module fileurl="file://$PROJECT_DIR$/chapter_8/chapter_8.iml" filepath="$PROJECT_DIR$/chapter_8/chapter_8.iml" />
+      <module fileurl="file://$PROJECT_DIR$/chapter_9/chapter_9.iml" filepath="$PROJECT_DIR$/chapter_9/chapter_9.iml" />
+      <module fileurl="file://$PROJECT_DIR$/chapter_10/chapter_9 (1).iml" filepath="$PROJECT_DIR$/chapter_10/chapter_9 (1).iml" />
+      <module fileurl="file://$PROJECT_DIR$/chapter_9/chapter_9 (2).iml" filepath="$PROJECT_DIR$/chapter_9/chapter_9 (2).iml" />
+      <module fileurl="file://$PROJECT_DIR$/java-a-to-z.iml" filepath="$PROJECT_DIR$/java-a-to-z.iml" />
       <module fileurl="file://$PROJECT_DIR$/java-a-to-z.iml" filepath="$PROJECT_DIR$/java-a-to-z.iml" />
     </modules>
   </component>

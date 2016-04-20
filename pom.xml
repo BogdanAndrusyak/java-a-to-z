@@ -3,5 +3,30 @@
 	<groupId>ru.parsentev</groupId>
 	<artifactId>java-a-to-z</artifactId>
 	<version>1.0</version>
-	<packaging>jar</packaging>
+	<packaging>pom</packaging>
+
+	<modules>
+		<module>chapter_1-2</module>
+		<module>chapter_3</module>
+		<module>chapter_4</module>
+		<module>chapter_5</module>
+		<module>chapter_6</module>
+		<module>chapter_7</module>
+		<module>chapter_8</module>
+		<module>chapter_9</module>
+		<module>chapter_10</module>
+	</modules>
+
+	<dependencies>
+		<dependency>
+			<groupId>junit</groupId>
+			<artifactId>junit</artifactId>
+			<version>4.12</version>
+		</dependency>
+		<dependency>
+			<groupId>org.slf4j</groupId>
+			<artifactId>slf4j-api</artifactId>
+			<version>1.7.19</version>
+		</dependency>
+	</dependencies>
 </project>

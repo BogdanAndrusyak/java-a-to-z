@@ -18,21 +18,14 @@ import java.util.concurrent.CopyOnWriteArrayList;
  * TODO: comment.
  * Created by Bogdan on 4/20/2016.
  */
-public class UsersController extends HttpServlet{
+public class UsersController extends HttpServlet {
     private static final Logger Log = LoggerFactory.getLogger(UsersController.class);
     private List<String> users = new CopyOnWriteArrayList<>();
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        HttpSession session = req.getSession();
-        synchronized (session) {
-            if (session == null || session.getAttribute("login") == null) {
-                resp.sendRedirect(String.format("%s/signin", req.getContextPath()));
-            } else {
-                req.setAttribute("users", UserStorage.getInstance().getUsers());
-                req.getRequestDispatcher("/WEB-INF/views/UsersView.jsp").forward(req, resp); // dispatcher - webapp directory
-            }
-        }
+        req.setAttribute("users", UserStorage.getInstance().getUsers());
+        req.getRequestDispatcher("/WEB-INF/views/UsersView.jsp").forward(req, resp); // dispatcher - webapp directory
     }
 
     @Override

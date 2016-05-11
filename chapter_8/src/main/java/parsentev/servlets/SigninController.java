@@ -21,14 +21,14 @@ public class SigninController extends HttpServlet {
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         String login = req.getParameter("login");
         String password = req.getParameter("password");
-        if (UserStorage.getInstance().isCredentional(login, password)) {
+        if (UserStorage.getInstance().isCredential(login, password)) {
             HttpSession session = req.getSession();
             synchronized (session) {
                 session.setAttribute("login", login);
             }
             resp.sendRedirect(String.format("%s/", req.getContextPath()));
         } else {
-            req.setAttribute("error", "Credentional invalid");
+            req.setAttribute("error", "Credential invalid");
             doGet(req, resp);
         }
     }

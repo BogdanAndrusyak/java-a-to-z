@@ -27,7 +27,7 @@ public class UserStorage {
         return this.users;
     }
 
-    public boolean isCredentional(String login, String password) {
+    public boolean isCredential(String login, String password) {
         boolean exists = false;
         for (User user : this.users) {
             if (user.getLogin().equals(login) && user.getPassword().equals(password)) {

@@ -1,0 +1,21 @@
+<hibernate-mapping>
+    <class name="parsentev.models.Item" table="items">
+        <id name="id" column="id">
+            <generator class="identity"/>
+        </id>
+        <property name="desc" column="description"/>
+        <property name="created" column="create_date"/>
+
+        <many-to-one name="author"
+                     column="author_id"
+                     class="parsentev.models.User"/>
+
+        <!--aggregation-->
+        <!--bag - is container -->
+        <!--inverse - important -->
+        <bag name="comments" inverse="true">
+            <key column="item_id" not-null="true"/>
+            <one-to-many class="parsentev.models.Comment"/>
+        </bag>
+    </class>
+</hibernate-mapping>

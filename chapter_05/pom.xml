@@ -10,4 +10,14 @@
 
     <artifactId>chapter_05</artifactId>
     <packaging>pom</packaging>
+
+    <modules>
+        <module>lesson_05.01</module>
+        <module>lesson_05.02</module>
+        <module>lesson_05.03</module>
+        <module>lesson_05.04</module>
+        <module>lesson_05.05</module>
+        <module>lesson_05.06</module>
+        <module>lesson_05.07</module>
+    </modules>
 </project>

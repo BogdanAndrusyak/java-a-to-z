@@ -10,10 +10,6 @@ import java.io.PrintStream;
 import static org.hamcrest.core.Is.is;
 import static org.junit.Assert.*;
 
-/**
- * TODO: comment.
- * Created by Bogdan on 8/13/2016.
- */
 public class CalculateTest {
     // use to read from the console.
     private final ByteArrayOutputStream outContent = new ByteArrayOutputStream();

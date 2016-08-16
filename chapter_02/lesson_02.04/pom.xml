@@ -1,0 +1,17 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0">
+
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>chapter_02</groupId>
+    <artifactId>lesson_02.04</artifactId>
+
+    <version>1.0</version>
+    <name>tracker</name>
+    <packaging>jar</packaging>
+
+    <parent>
+        <artifactId>chapter_02</artifactId>
+        <groupId>java-a-to-z</groupId>
+        <version>1.0</version>
+    </parent>
+</project>

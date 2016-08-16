@@ -1,13 +1,24 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <project xmlns="http://maven.apache.org/POM/4.0.0">
+
+    <modelVersion>4.0.0</modelVersion>
+
+    <artifactId>chapter_02</artifactId>
+    <packaging>pom</packaging>
+
     <parent>
         <groupId>java-a-to-z</groupId>
         <artifactId>java-a-to-z</artifactId>
         <version>1.0</version>
     </parent>
 
-    <modelVersion>4.0.0</modelVersion>
-
-    <artifactId>chapter_02</artifactId>
-    <packaging>pom</packaging>
+    <modules>
+        <module>lesson_02.01</module>
+        <module>lesson_02.02</module>
+        <module>lesson_02.03</module>
+        <module>lesson_02.04</module>
+        <module>lesson_02.05</module>
+        <module>lesson_02.06</module>
+        <module>lesson_02.07</module>
+    </modules>
 </project>

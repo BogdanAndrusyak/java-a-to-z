@@ -1,0 +1,13 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0">
+
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>chapter_03</groupId>
+    <artifactId>lesson_03.01</artifactId>
+
+    <parent>
+        <artifactId>chapter_03</artifactId>
+        <groupId>java-a-to-z</groupId>
+        <version>1.0</version>
+    </parent>
+</project>

@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Simple TODOlist</title>
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+    <!-- Optional theme -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+    <link href="https://cdn.datatables.net/plug-ins/1.10.7/integration/bootstrap/3/dataTables.bootstrap.css" rel="stylesheet" />
+
+    <!-- Latest compiled and minified JavaScript -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+
+    <script src="https://cdn.datatables.net/1.10.7/js/jquery.dataTables.min.js"></script>
+    <script src="https://cdn.datatables.net/plug-ins/1.10.7/integration/bootstrap/3/dataTables.bootstrap.js"></script>
+
+    <style>
+        .center-block-main {
+            max-width: 700px;
+            margin: 0 auto;
+            margin-top: 25px;
+        }
+
+        .table th, .table td {
+            text-align: center;
+        }
+
+        .input-group {
+            margin-bottom: 10px;
+        }
+
+        .show-all-check {
+            font-size: 1.3em;
+        }
+
+        .hide {
+            display: none;
+        }
+    </style>
+    <script>
+        $(
+                $.ajax('../json', {
+                    method : 'get',
+                    complete: function (data) {
+                        var result = document.getElementById("table-items").innerHTML;
+
+                        var items = JSON.parse(data.responseText).items;
+                        result += "<tbody>";
+                        for (var i=0; i!=items.length; ++i) {
+                                var item = items[i];
+                                var resultForCheck = item.done == "true" ? "<input item-check id=\""+ item.id +"\" type=\"checkbox\" checked onchange='checkChanged("+ item.id +")'>" : "<input item-check id=\""+ item.id +"\" type=\"checkbox\" onchange='checkChanged("+ item.id +")'>";
+                                result += "<tr>" +
+                                        "<td>"+ item.id +"</td>" +
+                                        "<td>"+ item.desc +"</td>" +
+                                        "<td>"+ item.created +"</td>" +
+                                        "<td>"+ resultForCheck +"</td>" +
+                                        "</tr>";
+
+                        }
+                        result += "</tbody>";
+                        var select = document.getElementById("table-items");
+                        select.innerHTML = result;
+                        sortTable();
+                    }
+                })
+        );
+
+        function refreshItems() {
+            $.ajax('../json', {
+                method : 'get',
+                complete: function (data) {
+                    var result = "<thead>" +
+                            "<tr>" +
+                            "<th>Id</th>" +
+                            "<th>Desc</th>" +
+                            "<th>Created</th>" +
+                            "<th>Check</th>" +
+                            "</tr>" +
+                            "</thead>";
+
+                    var items = JSON.parse(data.responseText).items;
+                    result += "<tbody>";
+                    for (var i=0; i!=items.length; ++i) {
+                        var item = items[i];
+                        var resultForCheck = item.done == "true" ? "<input item-check id=\""+ item.id +"\" type=\"checkbox\" checked onchange='checkChanged("+ item.id +")'>" : "<input item-check id=\""+ item.id +"\" type=\"checkbox\" onchange='checkChanged("+ item.id +")'>";
+                        result += "<tr>" +
+                                "<td>"+ item.id +"</td>" +
+                                "<td>"+ item.desc +"</td>" +
+                                "<td>"+ item.created +"</td>" +
+                                "<td>"+ resultForCheck +"</td>" +
+                                "</tr>";
+
+                    }
+                    result += "</tbody>";
+                    var select = document.getElementById("table-items");
+                    select.innerHTML = result;
+                    showAll();
+                }
+            })
+
+        }
+
+        // создать листенеры на каждый чекед
+        // нужно создать форму и отправить
+        function checkChanged(id) {
+            var done = document.getElementById(id).checked;
+
+            var dataString = 'id='+ id + '&done='+ done;
+
+            $.ajax({
+                type: "POST",
+                url: "../item/edit",
+                data: dataString,
+                success: function() {
+                    refreshItems();
+                }
+            });
+        }
+
+        function sortTable() {
+            $('#table-items').dataTable();
+        }
+
+        function showAll() {
+            var isShow = document.getElementById("show-all-checkbox").checked;
+            var allCheckboxes = $('input[item-check]');
+
+            if (!isShow) {
+                for (var i=0; i < allCheckboxes.length; ++i) {
+                    if(allCheckboxes[i].checked) {
+                        allCheckboxes[i].closest('tr').classList.add("hide");
+                        sortTable();
+                    }
+                }
+
+            } else {
+                for (var t=0; t < allCheckboxes.length; ++t) {
+                    if(allCheckboxes[t].checked) {
+                        allCheckboxes[t].closest('tr').classList.remove("hide");
+                        sortTable();
+                    }
+                }
+            }
+        }
+
+    </script>
+</head>
+<body>
+<div class="center-block-main">
+    <h2>Simple ToDoList</h2>
+    <form action="../item/add" method="post">
+        <div class="input-group">
+            <input class="form-control" type="text" name="desc" placeholder="Todo's description..." required>
+           <span class="input-group-btn">
+               <input class="btn btn-default" type="submit" value="Add">
+           </span>
+        </div>
+    </form>
+
+    <hr>
+
+    <span class="show-all-check">Show all? - </span>
+        <input id="show-all-checkbox" type="checkbox" checked onchange="showAll()">
+    <br><br>
+
+    <table class="table table-hover" id="table-items">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Desc</th>
+                <th>Created</th>
+                <th>Check</th>
+            </tr>
+        </thead>
+    </table>
+</div>
+</body>
+</html>

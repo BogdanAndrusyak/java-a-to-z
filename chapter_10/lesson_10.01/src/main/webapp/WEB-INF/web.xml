@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app>
+    <servlet>
+        <servlet-name>ViewServlet</servlet-name>
+        <servlet-class>andrusyak.servlets.ViewServlet</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>ViewServlet</servlet-name>
+        <url-pattern>/view</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>ItemAddServlet</servlet-name>
+        <servlet-class>andrusyak.servlets.ItemAddServlet</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>ItemAddServlet</servlet-name>
+        <url-pattern>/item/add</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>ItemEditServlet</servlet-name>
+        <servlet-class>andrusyak.servlets.ItemEditServlet</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>ItemEditServlet</servlet-name>
+        <url-pattern>/item/edit</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>JsonController</servlet-name>
+        <servlet-class>andrusyak.servlets.JsonController</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>JsonController</servlet-name>
+        <url-pattern>/json</url-pattern>
+    </servlet-mapping>
+</web-app>

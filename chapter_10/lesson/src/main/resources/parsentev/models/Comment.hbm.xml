@@ -6,6 +6,6 @@
         <property name="desc" column="description"/>
         <property name="spent" column="spent_time"/>
         <many-to-one name="item" column="item_id"
-                     class="parsentev.models.Item"/>
+                     class="parsentev.Item"/>
     </class>
 </hibernate-mapping>

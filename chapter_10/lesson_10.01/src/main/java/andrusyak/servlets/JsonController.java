@@ -3,6 +3,7 @@ package andrusyak.servlets;
 import andrusyak.models.Item;
 import andrusyak.storage.ItemHibernateStorage;
 import andrusyak.storage.ItemStorage;
+import com.google.common.base.Joiner;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -10,6 +11,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -25,25 +27,19 @@ public class JsonController extends HttpServlet {
         PrintWriter writer = new PrintWriter(resp.getOutputStream());
         List<Item> items = itemStorage.getAllItems();
 
-        writer.append("{\"items\":[");
-        for (int i = 0; i < items.size() - 1; i++) {
-            writer.append("{" +
-                        "\"id\":\"" + items.get(i).getId() + "\", " +
-                        "\"desc\":\"" + items.get(i).getDesc() + "\", " +
-                        "\"created\":\"" + items.get(i).getCreated() + "\", " +
-                        "\"done\":\"" + items.get(i).isDone() + "\" " +
-                    "}, ");
+        List values = new ArrayList();
+
+        for (Item item : items) {
+            values.add("{" +
+                    "\"id\":\"" + item.getId() + "\", " +
+                    "\"desc\":\"" + item.getDesc() + "\", " +
+                    "\"created\":\"" + item.getCreated() + "\", " +
+                    "\"done\":\"" + item.isDone() + "\" " +
+                    "}");
         }
 
-        // for last element - feature, without coma
-        int lastElement = items.size() - 1;
-        writer.append("{" +
-                "\"id\":\"" + items.get(lastElement).getId() + "\", " +
-                "\"desc\":\"" + items.get(lastElement).getDesc() + "\", " +
-                "\"created\":\"" + items.get(lastElement).getCreated() + "\", " +
-                "\"done\":\"" + items.get(lastElement).isDone() + "\" " +
-                "} ");
-
+        writer.append("{\"items\":[");
+        writer.append(Joiner.on(", ").join(values));
         writer.append("]}");
 
         writer.flush();

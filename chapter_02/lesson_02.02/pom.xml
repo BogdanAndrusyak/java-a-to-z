@@ -6,7 +6,6 @@
     <artifactId>lesson_02.02</artifactId>
 
     <version>1.0</version>
-    <name>tracker</name>
     <packaging>jar</packaging>
 
     <parent>

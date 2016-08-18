@@ -14,5 +14,6 @@
     <modules>
         <module>lesson</module>
         <module>lesson_10.01</module>
+        <module>lesson_10.02</module>
     </modules>
 </project>

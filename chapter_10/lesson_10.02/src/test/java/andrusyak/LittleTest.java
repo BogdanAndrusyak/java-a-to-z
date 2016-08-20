@@ -40,4 +40,9 @@ public class LittleTest {
         List<Car> resultList = storage.findCarsByName(carName);
         assertThat(resultList.isEmpty(), is(false));
     }
+    @Test
+    public void test() {
+
+        HibernateStorage.getInstance().getUnusedEngines();
+    }
 }

@@ -1,5 +1,5 @@
 <hibernate-mapping>
-    <class name="andrusyak.models.Gearbox" table="lesson_10_02_gearboxes">
+    <class name="andrusyak.models.Gearbox" table="gearboxes">
         <id name="id" column="id">
             <generator class="identity"/>
         </id>

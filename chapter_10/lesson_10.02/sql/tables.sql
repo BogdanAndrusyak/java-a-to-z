@@ -1,24 +1,24 @@
-create table lesson_10_02_transmissions (
+create table transmissions (
 	id serial primary key,
 	name varchar(200)
 );
 
-create table lesson_10_02_engines (
+create table engines (
 	id serial primary key,
 	name varchar(200)
 );
 
-create table lesson_10_02_gearboxes (
+create table gearboxes (
 	id serial primary key,
 	name varchar(200)
 );
 
-create table lesson_10_02_car_sales_platforms (
+create table car_sales_platforms (
   id serial primary key,
   name varchar(200)
 );
 
-create table lesson_10_02_cars (
+create table cars (
 	id serial primary key,
 	name varchar(200),
 

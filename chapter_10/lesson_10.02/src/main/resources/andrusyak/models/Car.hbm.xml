@@ -3,7 +3,14 @@
         <id name="id" column="id">
             <generator class="identity"/>
         </id>
-        <property name="name" column="name"/>
+        <property name="desc" column="description"/>
+        <property name="year" column="year"/>
+        <property name="photo" column="photo"/>
+        <property name="sold" column="sold"/>
+        <property name="price" column="price"/>
+        <property name="brand" column="brand"/>
+        <property name="model" column="model"/>
+        <property name="typeBody" column="type_body"/>
 
         <many-to-one name="engine"
                      column="engine_id"
@@ -17,8 +24,8 @@
                      column="gearbox_id"
                      class="andrusyak.models.Gearbox"/>
 
-        <many-to-one name="platform"
-                     column="car_sales_platform_id"
-                     class="andrusyak.models.CarSalesPlatform"/>
+        <many-to-one name="owner"
+                     column="owner_id"
+                     class="andrusyak.models.User"/>
     </class>
 </hibernate-mapping>

@@ -1,29 +1,45 @@
 package andrusyak.models;
 
+import java.io.File;
+import org.apache.commons.codec.binary.Base64;
+
 /**
  * TODO: comment.
  * Created by Bogdan on 8/18/2016.
  */
 public class Car {
     private int id;
-    private String name;
-
+    private String desc;
+    private int year;
+    private byte[] photo;
+    private boolean sold;
+    private int price;
+    private String brand;
+    private String model;
+    private String typeBody;
     private Engine engine;
     private Transmission transmission;
     private Gearbox gearbox;
-
-    private CarSalesPlatform platform;
+    private User owner;
 
     public Car() {
     }
 
-    // Each machine must on sale - not good realization, I think, - but not for shop:)
-    public Car(String name, Engine engine, Transmission transmission, Gearbox gearbox, CarSalesPlatform platform) {
-        this.name = name;
+    // for create
+    public Car(String desc, int year, byte[] photo, boolean sold, int price, String brand, String model,
+               String typeBody, Engine engine, Transmission transmission, Gearbox gearbox, User owner) {
+        this.desc = desc;
+        this.year = year;
+        this.photo = photo;
+        this.sold = sold;
+        this.price = price;
+        this.brand = brand;
+        this.model = model;
+        this.typeBody = typeBody;
         this.engine = engine;
         this.transmission = transmission;
         this.gearbox = gearbox;
-        this.platform = platform;
+        this.owner = owner;
     }
 
     public int getId() {
@@ -34,12 +50,68 @@ public class Car {
         this.id = id;
     }
 
-    public String getName() {
-        return name;
+    public String getDesc() {
+        return desc;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setDesc(String desc) {
+        this.desc = desc;
+    }
+
+    public int getYear() {
+        return year;
+    }
+
+    public void setYear(int year) {
+        this.year = year;
+    }
+
+    public byte[] getPhoto() {
+        return photo;
+    }
+
+    public void setPhoto(byte[] photo) {
+        this.photo = photo;
+    }
+
+    public boolean isSold() {
+        return sold;
+    }
+
+    public void setSold(boolean sold) {
+        this.sold = sold;
+    }
+
+    public int getPrice() {
+        return price;
+    }
+
+    public void setPrice(int price) {
+        this.price = price;
+    }
+
+    public String getBrand() {
+        return brand;
+    }
+
+    public void setBrand(String brand) {
+        this.brand = brand;
+    }
+
+    public String getModel() {
+        return model;
+    }
+
+    public void setModel(String model) {
+        this.model = model;
+    }
+
+    public String getTypeBody() {
+        return typeBody;
+    }
+
+    public void setTypeBody(String typeBody) {
+        this.typeBody = typeBody;
     }
 
     public Engine getEngine() {
@@ -66,11 +138,15 @@ public class Car {
         this.gearbox = gearbox;
     }
 
-    public CarSalesPlatform getPlatform() {
-        return platform;
+    public User getOwner() {
+        return owner;
     }
 
-    public void setPlatform(CarSalesPlatform platform) {
-        this.platform = platform;
+    public void setOwner(User owner) {
+        this.owner = owner;
+    }
+
+    public String getByteArrayString() {
+        return new String(new Base64().encode(this.photo));
     }
 }

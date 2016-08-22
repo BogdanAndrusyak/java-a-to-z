@@ -1,0 +1,69 @@
+.center-block-main {
+    max-width: 900px;
+    margin: 30px auto 0;
+}
+
+.btn-my {
+    width: 30%;
+}
+
+.hr-my {
+    width: 83.33333333%;
+    float: right;
+}
+
+td {
+    padding-bottom: 20px!important;
+    padding-left: 20px!important;
+}
+
+.my-ads-header {
+    position: relative;
+    top: -30px;
+    color: #008cc3;
+    font-size: 1.3em;
+}
+
+.my-ads-content {
+    position: relative;
+    top: -20px;
+    color: black;
+    font-size: 1em;
+}
+
+.my-ads-desc {
+    position: relative;
+    top: -10px;
+    color: #5e5e5e;
+    font-size: 0.75em;
+}
+
+.table {
+    margin-left: 50px!important;
+}
+
+.sold {
+    position: relative;
+    top: -2px;
+    color: red;
+    border: 1px solid red;
+    font-size: 0.85em;
+    padding-left: 4px;
+    padding-right: 4px;
+}
+
+.change-status {
+    color: grey;
+    font-size: 0.8em;
+}
+
+a:hover.change-status {
+    color: black;
+    cursor: pointer;
+    text-decoration: none;
+}
+
+.change-status-container {
+    position: relative;
+    top: -2px;
+}

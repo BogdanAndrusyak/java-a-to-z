@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<web-app>
+    <filter>
+        <filter-name>AuthFilter</filter-name>
+        <filter-class>andrusyak.servlets.AuthFilter</filter-class>
+    </filter>
+
+    <filter-mapping>
+        <filter-name>AuthFilter</filter-name>
+        <url-pattern>*</url-pattern>
+    </filter-mapping>
+
+    <servlet>
+        <servlet-name>AuthServlet</servlet-name>
+        <servlet-class>andrusyak.servlets.AuthServlet</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>AuthServlet</servlet-name>
+        <url-pattern>/auth</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>RegisterServlet</servlet-name>
+        <servlet-class>andrusyak.servlets.RegisterServlet</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>RegisterServlet</servlet-name>
+        <url-pattern>/register</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>LoginServlet</servlet-name>
+        <servlet-class>andrusyak.servlets.LoginServlet</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>LoginServlet</servlet-name>
+        <url-pattern>/login</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>JsonController</servlet-name>
+        <servlet-class>andrusyak.servlets.JsonController</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>JsonController</servlet-name>
+        <url-pattern>/json</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>CarView</servlet-name>
+        <servlet-class>andrusyak.servlets.CarViewServlet</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>CarView</servlet-name>
+        <url-pattern>/view</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>CarAdd</servlet-name>
+        <servlet-class>andrusyak.servlets.CarAddServlet</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>CarAdd</servlet-name>
+        <url-pattern>/addcar</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>ChangeStatus</servlet-name>
+        <servlet-class>andrusyak.servlets.CarChangeStatus</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>ChangeStatus</servlet-name>
+        <url-pattern>/changestatus</url-pattern>
+    </servlet-mapping>
+</web-app>

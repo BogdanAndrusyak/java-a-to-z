@@ -10,10 +10,9 @@
 
         <mapping resource="andrusyak/models/Car.hbm.xml"/>
 
+        <mapping resource="andrusyak/models/User.hbm.xml"/>
         <mapping resource="andrusyak/models/Engine.hbm.xml"/>
         <mapping resource="andrusyak/models/Gearbox.hbm.xml"/>
         <mapping resource="andrusyak/models/Transmission.hbm.xml"/>
-
-        <mapping resource="andrusyak/models/CarSalesPlatform.hbm.xml"/>
     </session-factory>
 </hibernate-configuration>

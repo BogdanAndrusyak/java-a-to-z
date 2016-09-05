@@ -1,8 +1,7 @@
 package andrusyak;
 
 /**
- * TODO: comment.
- * Created by Bogdan on 8/13/2016.
+ * Created by bogdan on 9/5/16.
  */
 public interface Storage {
     void add(User user);

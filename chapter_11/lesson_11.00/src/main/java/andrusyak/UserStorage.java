@@ -4,15 +4,14 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 /**
- * TODO: comment.
- * Created by Bogdan on 8/13/2016.
+ * Created by bogdan on 9/5/16.
  */
 @Component
 public class UserStorage {
     private final Storage storage;
 
     @Autowired
-    public UserStorage(Storage storage) {
+    public UserStorage(final Storage storage) {
         this.storage = storage;
     }
 

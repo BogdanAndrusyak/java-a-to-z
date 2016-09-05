@@ -11,25 +11,8 @@
     <artifactId>chapter_11</artifactId>
     <packaging>pom</packaging>
 
-    <dependencies>
-        <!-- https://mvnrepository.com/artifact/org.springframework/spring-core -->
-        <dependency>
-            <groupId>org.springframework</groupId>
-            <artifactId>spring-core</artifactId>
-            <version>4.3.2.RELEASE</version>
-        </dependency>
-        <!-- https://mvnrepository.com/artifact/org.springframework/spring-context -->
-        <dependency>
-            <groupId>org.springframework</groupId>
-            <artifactId>spring-context</artifactId>
-            <version>4.3.2.RELEASE</version>
-        </dependency>
-        <!-- https://mvnrepository.com/artifact/org.springframework/spring-beans -->
-        <dependency>
-            <groupId>org.springframework</groupId>
-            <artifactId>spring-beans</artifactId>
-            <version>4.3.2.RELEASE</version>
-        </dependency>
-
-    </dependencies>
+    <modules>
+        <module>lesson_11.00</module>
+        <module>lesson_11.01</module>
+    </modules>
 </project>

@@ -7,7 +7,7 @@ import java.util.ArrayList;
 /**
  * Created by bogdan on 9/5/16.
  */
-@Component
+
 public class MemoryStorage implements Storage {
     ArrayList<User> users;
 

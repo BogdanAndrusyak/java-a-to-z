@@ -103,3 +103,28 @@
 		        this.storage.add(user);
 		    }
 		}
+		
+####4. С помощью интерфейса FactoryBean
+
+нужно дополнительно создать для нашего класса обертку с интерфейсом
+
+    public class MemoryStorageFactoryBean implements FactoryBean<MemoryStorage> {
+        @Override
+        public MemoryStorage getObject() throws Exception {
+            return new MemoryStorage();
+        }
+    
+        @Override
+        public Class<?> getObjectType() {
+            return MemoryStorage.class;
+        }
+    
+        @Override
+        public boolean isSingleton() {
+            return false;
+        }
+    }
+    
+и записать этот бин-обертку в контекст
+
+    <bean id="memory" class="andrusyak.MemoryStorageFactoryBean"/>

@@ -21,7 +21,7 @@ public class UserStorageTest {
     @Test
     public void whenLoadContextShouldGetBeans() {
         ApplicationContext context = new ClassPathXmlApplicationContext("spring-context.xml");
-        UserStorage storage = context.getBean(UserStorage.class);
+        MemoryStorage storage = (MemoryStorage) context.getBean("memory");
         storage.add(new User());
         assertNotNull(storage);
     }

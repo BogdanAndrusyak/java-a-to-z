@@ -12,11 +12,12 @@ import static org.junit.Assert.*;
 public class UserStorageTest {
     @Test
     public void whenAddUserStorageShouldSafeIt() throws Exception {
-        ApplicationContext context = new ClassPathXmlApplicationContext("spring-context.xml");
-        UserStorage storage = (UserStorage) context.getBean("memoryUserStorage");
+        try (ClassPathXmlApplicationContext context = new ClassPathXmlApplicationContext("spring-context.xml")) {
+            UserStorage storage = (UserStorage) context.getBean("memoryUserStorage");
 
-        storage.add(new User());
+            storage.add(new User());
 
-        assertFalse(storage.getAll().isEmpty());
+            assertFalse(storage.getAll().isEmpty());
+        }
     }
 }

@@ -57,12 +57,15 @@
 
 Описать в файле наши бины:
 
-	ApplicationContext context = new AnnotationConfigApplicationContext(AppContext.class);
-	UserStorage storage = context.getBean(UserStorage.class);
+	<bean id="memory" class="andrusyak.MemoryStorage"/>
+    
+    <bean id="storage" class="andrusyak.UserStorage">
+        <constructor-arg name="storage" ref="memory"/>
+    </bean>
 
 Использовать так:
 
-	ApplicationContext context = new AnnotationConfigApplicationContext(AppContext.class);
+	ApplicationContext context = new AnnotationConfigApplicationContext("spring-context.xml");
 	UserStorage storage = context.getBean(UserStorage.class);
 
 ####3. Файла xml и Annotations

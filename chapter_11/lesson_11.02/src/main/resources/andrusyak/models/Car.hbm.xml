@@ -1,0 +1,31 @@
+<hibernate-mapping>
+    <class name="andrusyak.models.Car" table="cars">
+        <id name="id" column="id">
+            <generator class="identity"/>
+        </id>
+        <property name="desc" column="description"/>
+        <property name="year" column="year"/>
+        <property name="photo" column="photo"/>
+        <property name="sold" column="sold"/>
+        <property name="price" column="price"/>
+        <property name="brand" column="brand"/>
+        <property name="model" column="model"/>
+        <property name="typeBody" column="type_body"/>
+
+        <many-to-one name="engine"
+                     column="engine_id"
+                     class="andrusyak.models.Engine"/>
+
+        <many-to-one name="transmission"
+                     column="transmission_id"
+                     class="andrusyak.models.Transmission"/>
+
+        <many-to-one name="gearbox"
+                     column="gearbox_id"
+                     class="andrusyak.models.Gearbox"/>
+
+        <many-to-one name="owner"
+                     column="owner_id"
+                     class="andrusyak.models.User"/>
+    </class>
+</hibernate-mapping>

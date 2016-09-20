@@ -1,0 +1,18 @@
+<hibernate-mapping>
+    <class name="andrusyak.models.QueryCarFilter" table="queries">
+        <id name="id" column="id">
+            <generator class="identity"/>
+        </id>
+        <property name="typeBody" column="type_body"/>
+        <property name="brand" column="brand"/>
+        <property name="model" column="model"/>
+        <property name="yearFrom" column="year_from"/>
+        <property name="yearTo" column="year_to"/>
+        <property name="priceFrom" column="price_from"/>
+        <property name="priceTo" column="price_to"/>
+
+        <many-to-one name="user"
+                     column="user_id"
+                     class="andrusyak.models.User"/>
+    </class>
+</hibernate-mapping>

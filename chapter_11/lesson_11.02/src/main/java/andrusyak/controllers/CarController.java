@@ -5,7 +5,9 @@ import andrusyak.storages.CarStorage;
 import andrusyak.storages.EngineStorage;
 import andrusyak.storages.GearboxStorage;
 import andrusyak.storages.TransmissionStorage;
+import org.apache.commons.fileupload.FileUpload;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.cglib.core.Local;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.validation.BindingResult;
@@ -14,6 +16,7 @@ import org.springframework.web.multipart.MultipartFile;
 
 import javax.validation.Valid;
 import java.io.IOException;
+import java.util.Locale;
 
 /**
  * Created by bogdan on 9/13/16.
@@ -46,16 +49,12 @@ public class CarController {
         CarAddForm carAddForm = new CarAddForm();
 
         modelMap.addAttribute("carAddForm", carAddForm);
-
         return "CarAdd";
     }
 
     @RequestMapping(value = "/add", method = RequestMethod.POST)
     public String add(@Valid CarAddForm carAddForm,
-                      BindingResult bindingResult) {
-        if (bindingResult.hasErrors()) {
-            // todo need logger
-        }
+                      @RequestParam("image") MultipartFile image) {
 
         User user = carAddForm.getUser();
         Engine engine = carAddForm.getEngine();
@@ -72,6 +71,12 @@ public class CarController {
         car.setTransmission(transmission);
         car.setGearbox(gearbox);
         car.setOwner(user);
+
+        try {
+            car.setPhoto(image.getBytes());
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
 
         this.carStorage.add(car);
         return "redirect:/car/viewall.do";

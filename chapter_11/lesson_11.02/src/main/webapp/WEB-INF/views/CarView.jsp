@@ -881,8 +881,7 @@
                 <c:forEach items="${cars}" var="car">
                     <tr>
                         <td>
-                            <%--todo add image--%>
-                            <%--<img src="data:image/jpg;base64,${car.getByteArrayString()}" width="200px">--%>
+                            <img src="data:image/jpg;base64,${car.getByteArrayString()}" width="200px">
                         </td>
                         <td>
                             <span class="my-ads-header">${car.brand} ${car.model}, ${car.year}<c:if test="${car.sold == true}"> <span class="sold">sold</span></c:if><c:if test="${car.owner.id == sessionScope.user.id}"> <span class="change-status-container"><span class="change-status">-</span> <a onclick="showChangeStatusModal(${car.id})" class="change-status">change status</a></span></c:if></span><br>
